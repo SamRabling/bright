@@ -9,9 +9,9 @@ Rails.application.routes.draw do
 
   get 'bright_ideas' => 'ideas#index'
 
-  post 'bright_ideas/create' => 'ideas#create'
+  post 'ideas/create' => 'ideas#create'
 
-  delete 'bright_ideas/delete' => 'ideas#delete'
+  delete 'bright_ideas/:id/delete' => 'ideas#delete'
 
   get 'bright_ideas/:id' => 'ideas#show'
 

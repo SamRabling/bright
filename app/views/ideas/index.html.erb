@@ -7,24 +7,25 @@
 <div class="main">
     <form action="ideas/create" method="post">
         <input type="hidden" name="authenticity_token" value="<%=form_authenticity_token%>">
-        <input type="text" name="email" value="Post something witty here...">
+        <input type="text" name="post" value="Post something witty here...">
         <input type="submit" name="Idea!" value="submit">
     </form>
     <br>
     <br>
     <div class="ideas">
         <% @ideas.each do |idea|%>
-        <p> <a href="bright_ideas/<%=idea.user.id%>"><%=idea.user.alias%> </a>says:</p>
+        <p> <a href="users/<%=idea.user.id%>"><%=idea.user.alias%> </a>says:</p>
         <p> <%=idea.post%>
         <a href="bright_ideas/<%=idea.id%>/like" data-method="patch"> Like</a>
         <p><a href="bright_ideas/<%=idea.id%>"><%=idea.likes.count%> people</a> liked this</p>
-        <% end %>
+        
         <% if current_user == idea.user %>
         <form action = "bright_ideas/<%=idea.id%>/delete" method = "post">
             <input type = 'hidden' name = "authenticity_token" value = "<%=form_authenticity_token%>">
             <input type = 'hidden' name = "_method" value = "delete">
-            <input type = "submit" value = "Delete Secret" >
+            <input type = "submit" value = "Delete Idea" >
         </form>
+        <% end %>
     <% end %>
     <div>
 </div>

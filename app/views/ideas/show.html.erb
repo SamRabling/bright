@@ -1,22 +1,22 @@
 <div class"header">
-<a href="/bright_ideas">Dashboard</a>
+<a href="/bright_ideas">Bright Ideas</a>
 <a href="/logout">Log out</a>
 </div>
 
-<p> <a href="bright_ideas/<%=idea.user.id%>"><%=idea.user.alias%> </a>says:</p>
-<p> <%=idea.post%>
+<p> <a href="bright_ideas/<%=@idea.user.id%>"><%=@idea.user.alias%> </a>says:</p>
+<p> <%=@idea.post%>
 <br>
 <br>
 <p>People who liked this post:</p>
 <table>
     <tr>
-    <th>Alias</th>
-    <th>Name</th>
+        <th>Alias</th>
+        <th>Name</th>
     </tr>
-</table>
     <tr>
-        <% @song.adds.uniq.each do |play|%>
-            <th><a href="/users/<%=play.id%>"><%=play.first_name%> <%=play.last_name%></a></th>
-            <th><%=play.playls.where(song:@song).count%></th>
-        </tr>
+        <% @idea.user_liked.uniq.each do |i|%>
+        <th><a href="/users/<%=i.id%>"><%=i.alias%></a></th>
+        <th><%=i.name%></th>
+    </tr>
         <% end %>
+</table>

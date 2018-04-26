@@ -1,0 +1,13 @@
+<div class"header">
+<a href="/bright_ideas">Bright Ideas</a>
+<a href="/logout">Log out</a>
+</div>
+<p>Name:<%=@user.name%></p>
+<p>Alias:<%=@user.alias%></p>
+<p>Email:<%=@user.email%></p>
+<br>
+<br>
+    <p>Total number of posts:<%= @user.ideas.count %> </p>
+    <p>Total number of likes:<%= @user.likes.count %> </p>
+        
+
