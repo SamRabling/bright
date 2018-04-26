@@ -5,6 +5,7 @@
             <%= error %>
         <% end %>
     <% end %>
+    <h3>Register</h3>
     <form action="users/create" method="post">
         <input type="hidden" name="authenticity_token" value="<%=form_authenticity_token%>">
         Name: <input type="text" name="name">
@@ -12,17 +13,19 @@
         Email: <input type="texxt" name="email">
         Password: <input type="password" name="password">
         <p>* Password should be at least 8 characters</p>
-        Confirm PW: <input type = "password" name = "password_confirm">
+        Confirm PW: <input type = "password" name = "password_confirmation">
         <input type="submit" name="Register" value="submit">
     </form>
 </div>
-
+<br>
+<br>
 <div class="login">
     <% if flash[:errors] %>
         <% flash[:errors].each do |error| %>
             <%= error %>
         <% end %>
     <% end %>
+    <h3>Log In</h3>
     <form action="sessions/create" method="post">
         <input type="hidden" name="authenticity_token" value="<%=form_authenticity_token%>">
         Email: <input type="texxt" name="email">
