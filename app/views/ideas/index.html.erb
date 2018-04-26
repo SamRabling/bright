@@ -5,6 +5,11 @@
 <br>
 <br>
 <div class="main">
+    <% if flash[:errors] %>
+        <% flash[:errors].each do |error| %>
+            <%= error %>
+        <% end %>
+    <% end %>
     <form action="ideas/create" method="post">
         <input type="hidden" name="authenticity_token" value="<%=form_authenticity_token%>">
         <input type="text" name="post" value="Post something witty here...">
