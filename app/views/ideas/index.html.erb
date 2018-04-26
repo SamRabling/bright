@@ -14,9 +14,17 @@
     <br>
     <div class="ideas">
         <% @ideas.each do |idea|%>
-        <p> <%=idea.user.alias%> says:</p>
+        <p> <a href="bright_ideas/<%=idea.user.id%>"><%=idea.user.alias%> </a>says:</p>
         <p> <%=idea.post%>
         <a href="bright_ideas/<%=idea.id%>/like" data-method="patch"> Like</a>
+        <p><a href="bright_ideas/<%=idea.id%>"><%=idea.likes.count%> people</a> liked this</p>
         <% end %>
+        <% if current_user == idea.user %>
+        <form action = "bright_ideas/<%=idea.id%>/delete" method = "post">
+            <input type = 'hidden' name = "authenticity_token" value = "<%=form_authenticity_token%>">
+            <input type = 'hidden' name = "_method" value = "delete">
+            <input type = "submit" value = "Delete Secret" >
+        </form>
+    <% end %>
     <div>
 </div>
