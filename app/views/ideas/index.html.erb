@@ -5,5 +5,18 @@
 <br>
 <br>
 <div class="main">
-    
+    <form action="ideas/create" method="post">
+        <input type="hidden" name="authenticity_token" value="<%=form_authenticity_token%>">
+        <input type="text" name="email" value="Post something witty here...">
+        <input type="submit" name="Idea!" value="submit">
+    </form>
+    <br>
+    <br>
+    <div class="ideas">
+        <% @ideas.each do |idea|%>
+        <p> <%=idea.user.alias%> says:</p>
+        <p> <%=idea.post%>
+        <a href="bright_ideas/<%=idea.id%>/like" data-method="patch"> Like</a>
+        <% end %>
+    <div>
 </div>

@@ -15,6 +15,8 @@ Rails.application.routes.draw do
 
   get 'bright_ideas/:id' => 'ideas#show'
 
+  patch 'bright_ideas/:id/like' => 'ideas#like'
+
   get 'logout' => 'sessions#delete'
 
   
