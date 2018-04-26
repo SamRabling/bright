@@ -1,13 +1,25 @@
 Rails.application.routes.draw do
-  get 'ideas/index'
+  root 'users/index'
 
-  get 'ideas/show'
+  post 'users/create' => 'users#create'
 
-  get 'sessions/create'
+  post 'sessions/create' => 'sessions#create'
 
-  get 'users/index'
+  get 'users/:id' => 'users#show'
 
-  get 'users/show'
+  get 'bright_ideas' => 'ideas#index'
+
+  post 'bright_ideas/create' => 'ideas#create'
+
+  delete 'bright_ideas/delete' => 'ideas#delete'
+
+  get 'bright_ideas/:id' => 'ideas#show'
+
+  get 'logout' => 'sessions#delete'
+
+  
+
+  
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
