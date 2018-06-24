@@ -1,35 +1,40 @@
-<div class="register">
+<div class="header">
     <h1>Welcome!</h1>
-    <% if flash[:errors] %>
-        <% flash[:errors].each do |error| %>
-            <%= error %>
-        <% end %>
-    <% end %>
-    <h3>Register</h3>
-    <form action="users/create" method="post">
-        <input type="hidden" name="authenticity_token" value="<%=form_authenticity_token%>">
-        Name: <input type="text" name="name">
-        Alias: <input type="text" name="alias">
-        Email: <input type="texxt" name="email">
-        Password: <input type="password" name="password">
-        <p>* Password should be at least 8 characters</p>
-        Confirm PW: <input type = "password" name = "confirm">
-        <input type="submit" name="Register" value="submit">
-    </form>
 </div>
-<br>
-<br>
-<div class="login">
-    <% if flash[:errors] %>
-        <% flash[:errors].each do |error| %>
-            <%= error %>
-        <% end %>
-    <% end %>
-    <h3>Log In</h3>
-    <form action="sessions/create" method="post">
-        <input type="hidden" name="authenticity_token" value="<%=form_authenticity_token%>">
-        Email: <input type="text" name="email">
-        Password: <input type="password" name="password">
-        <input type="submit" name="Register" value="submit">
-    </form>
+
+<div class="container">
+            <% if flash[:errors] %>
+                <% flash[:errors].each do |error| %>
+                    <%= error %>
+                <% end %>
+            <% end %>
+           
+            <form action="users/create" method="post">
+                <h3>Register</h3>
+                <div class="form-signin login">
+                    <input type="hidden" name="authenticity_token" value="<%=form_authenticity_token%>">
+                    <label for="exampleInputName">Name:</label><input type="text" class="form-control" name="name">
+                    <label for="exampleInputAlias">Alias:</label><input type="text" class="form-control" name="alias">
+                    <label for="exampleInputEmail">Email:</label><input type="texxt" class="form-control"  name="email">
+                    <label for="exampleInputPassword">Password:</label><input type="password" class="form-control"  name="password">
+                    <small id="emailHelp" class="form-text text-muted">Password should be at least 8 characters.</small>
+                    </br>
+                    <label for="exampleInputConfirmPW"> Confirm Password:</label><input type = "password" class="form-control"  name = "confirm">
+                    </br>
+                    <input type="submit" class="btn btn-primary" name="Register" value="submit">
+                </div>
+            </form>
+        <br>
+        <br>
+            
+            <form action="sessions/create" method="post">
+                <h3>Log In</h3> 
+                <div class="form-signin">
+                    <input type="hidden" name="authenticity_token" value="<%=form_authenticity_token%>">
+                    <label for="exampleInputEmail">Email:</label><input type="text"class="form-control"  name="email">
+                    <label for="exampleInputPassword">Password:</label><input type="password"class="form-control"  name="password">
+                    </br>
+                    <input type="submit" class="btn btn-primary"  name="Register" value="submit">
+                </div>
+            </form>
 </div>

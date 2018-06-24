@@ -48,3 +48,5 @@ end
 #for console 
 
   gem 'hirb'
+
+  gem 'bootstrap-sass'
