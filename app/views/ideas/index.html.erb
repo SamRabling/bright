@@ -27,11 +27,13 @@
     <br>
     <div class="ideas">
         <% @ideas.each do |idea|%>
-        <p> <a href="users/<%=idea.user.id%>"><%=idea.user.alias%> </a>says:</p>
-        <p> <%=idea.post%>
-        <a href="bright_ideas/<%=idea.id%>/like" data-method="patch"> Like</a>
-        <p><a href="bright_ideas/<%=idea.id%>"><%=idea.likes.count%> people</a> liked this</p>
-        
+        </br>
+        <p><strong> <a href="users/<%=idea.user.id%>"><%=idea.user.alias%> </a>says:</strong></p>
+        <blockquote class="blockquote">
+            <p class="mb-0">"<%=idea.post%>"</p>
+            <a href="bright_ideas/<%=idea.id%>/like" data-method="patch"> Like</a>
+            <footer class="blockquote-footer"><p><a href="bright_ideas/<%=idea.id%>"><%=idea.likes.count%> people</a> liked this</p></footer>
+        </blockquote>
         <% if current_user == idea.user %>
         <form action = "bright_ideas/<%=idea.id%>/delete" method = "post">
             <div class="form-group ">
@@ -40,6 +42,7 @@
                 <input type = "submit" class="btn btn-warning" value = "Delete Idea" >
             <div>
         </form>
+        
         <% end %>
     <% end %>
     <div>
