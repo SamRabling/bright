@@ -3,20 +3,27 @@
     <a class="brightHead head2" href="/logout">Log out</a>
 </div>
 
-<p> <a href="bright_ideas/<%=@idea.user.id%>"><%=@idea.user.alias%> </a>says:</p>
-<p> <%=@idea.post%>
-<br>
-<br>
-<p>People who liked this post:</p>
-<table>
-    <tr>
-        <th>Alias</th>
-        <th>Name</th>
-    </tr>
-    <tr>
-        <% @idea.user_liked.uniq.each do |i|%>
-        <th><a href="/users/<%=i.id%>"><%=i.alias%></a></th>
-        <th><%=i.name%></th>
-    </tr>
-        <% end %>
-</table>
+<div class="container">
+    <div class="card">
+        <h3 class="cart-title"> <a href="bright_ideas/<%=@idea.user.id%>"><%=@idea.user.alias%> </a>says:</h3>
+        <h4 class="card-text">"<%=@idea.post%>"</h4>
+    </div>
+    <br>
+    <h4>People who liked this post:</h4>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Alias</th>
+                <th>Name</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <% @idea.user_liked.uniq.each do |i|%>
+                <th><a href="/users/<%=i.id%>"><%=i.alias%></a></th>
+                <th><%=i.name%></th>
+            </tr>
+                <% end %>
+        </tbody>
+    </table>
+</div>
