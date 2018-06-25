@@ -4,20 +4,24 @@
 </div>
 <br>
 <br>
-<div class="main">
-<div class="alert alert-warning" role="alert">
+<div class="container">
+
   <% if flash[:errors] %>
         <% flash[:errors].each do |error| %>
+        <div class="alert alert-warning" role="alert">
             <%= error %>
+        </div>
         <% end %>
     <% end %>
-</div>
+
     
     <form action="ideas/create" method="post">
         <div class="form-group ">
-        <input type="hidden" name="authenticity_token" value="<%=form_authenticity_token%>">
-        <input type="text" name="post" value="Post something witty here...">
-        <input type="submit" name="Idea!" value="submit">
+            <input type="hidden" name="authenticity_token" value="<%=form_authenticity_token%>">
+            <input type="text" name="post" class="form-control" value="Post something witty here...">
+            </br>
+            <input type="submit" class="btn btn-primary" name="Idea!" value="submit">
+        </div>
     </form>
     <br>
     <br>
@@ -30,9 +34,11 @@
         
         <% if current_user == idea.user %>
         <form action = "bright_ideas/<%=idea.id%>/delete" method = "post">
-            <input type = 'hidden' name = "authenticity_token" value = "<%=form_authenticity_token%>">
-            <input type = 'hidden' name = "_method" value = "delete">
-            <input type = "submit" value = "Delete Idea" >
+            <div class="form-group ">
+                <input type = 'hidden' name = "authenticity_token" value = "<%=form_authenticity_token%>">
+                <input type = 'hidden' name = "_method" value = "delete">
+                <input type = "submit" class="btn btn-warning" value = "Delete Idea" >
+            <div>
         </form>
         <% end %>
     <% end %>
